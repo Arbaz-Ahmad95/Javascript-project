@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container {
+            border: 1px solid black;
+            width: 500px;
+            height: 300px;
+            margin: auto;
+            background-color: purple;
+            position: relative;
+        }
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            border: 1px solid black;
+        }
+        .controls {
+            border: 1px solid black;
+            width: 300px;
+            height: 200px;
+            margin: auto;
+            margin-top: 30px;
+            background-color: blanchedalmond;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .button {
+            border: 1px solid black;
+            width: 70px;
+            height: 40px;
+            background-color: aqua;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .left-right-container {
+            display: flex;
+            justify-content: space-between;
+            width: 160px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Game Controls</h1>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <div class="controls">
+        <div class="button up">UP</div>
+        <div class="left-right-container">
+            <div class="button left">LEFT</div>
+            <div class="button right">RIGHT</div>
+        </div>
+        <div class="button down">DOWN</div>
+    </div>
+
+    <script>
+        let box = document.querySelector(".box");
+        let up = document.querySelector(".up");
+        let left = document.querySelector(".left");
+        let right = document.querySelector(".right");
+        let down = document.querySelector(".down");
+
+        let boxPosition = { top: 30, left: 20 };
+
+        up.addEventListener("click", function() {
+            boxPosition.top -= 10;
+            console.dir(boxPosition.top)
+            box.style.top = boxPosition.top + "px";
+        });
+        left.addEventListener("click", function() {
+            boxPosition.left -= 10;
+            box.style.left = boxPosition.left + "px";
+        });
+        right.addEventListener("click", function() {
+            boxPosition.left += 10;
+            box.style.left = boxPosition.left + "px";
+        });
+        down.addEventListener("click", function() {
+            boxPosition.top += 10;
+            box.style.top = boxPosition.top + "px";
+        });
+    </script>
+</body>
+</html>
